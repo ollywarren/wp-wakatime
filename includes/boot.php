@@ -17,6 +17,8 @@ class Boot {
 	 *  are located in the Includes folder and follow the
 	 *  following convention for naming: nameWidget.php
 	 *
+	 *  3. Registers the Stylesheet to manage the Progress bar visuals.
+	 *
 	 * @author  Olly Warren
 	 * @package Wp_Wakatime\Boot
 	 * @version 1.0
@@ -30,6 +32,9 @@ class Boot {
 	    add_action( 'widgets_init', function(){
 	    	register_widget('Wp_Wakatime\Widgets\languageWidget');
 	    });
+
+	    //3. Register the Custom CSS
+	    add_action( 'wp_enqueue_scripts', ['Wp_Wakatime\Boot', 'queueStyles'] );
     }
 
 	/**
@@ -135,5 +140,18 @@ class Boot {
 		submit_button('Save Configuration');
 	    echo '</form>';
 	    echo '</div>';
+    }
+
+	/**
+	 * queueStyles
+	 *
+	 * Queues up the Stylesheet
+	 *
+	 * @author  Olly Warren, Big Bite Creative
+	 * @package Wp_Wakatime\Boot
+	 * @version 1.0
+	 */
+    public static function queueStyles() {
+	    wp_enqueue_style( 'wp-wakatime-style', plugin_dir_url(dirname(__FILE__)).'assets/css/wp_wakatime.css');
     }
 }

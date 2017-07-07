@@ -30,7 +30,7 @@ class Wakatime {
 	 * @package Wp_Wakatime\Wakatime\getStats
 	 * @version 1.0
 	 */
-	public static function getStats()
+	public static function getStats( $duration = 'last_7_days' )
 	{
 		$return = new \stdClass();
 
@@ -38,7 +38,7 @@ class Wakatime {
 		$token = 'Basic '. base64_encode(get_option('wakatime_api_key'));
 
 		//2. Assemble the endpoint URL.
-		$url = WAKATIME_API_URL.'users/current/stats/last_7_days';
+		$url = WAKATIME_API_URL.'users/current/stats/'.$duration;
 
 		//3. Request Arguments.
 		$args = array(
