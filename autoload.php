@@ -7,12 +7,12 @@
  * auto loading to this Array  *
  *******************************/
 $classes = [
-	'boot',
-	'wakatime',
-	'languageWidget'
+	'class-boot',
+	'class-wakatime',
+	'class-languagewidget',
 ];
 
 /** Each Class is then auto loaded from the Path. */
-foreach( $classes as $class ) {
+foreach ( $classes as $class ) {
 	require_once AUTOLOAD_PATH . "includes/$class.php";
 }

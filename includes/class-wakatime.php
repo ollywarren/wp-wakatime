@@ -30,39 +30,36 @@ class Wakatime {
 	 * @package Wp_Wakatime\Wakatime\getStats
 	 * @version 1.0
 	 */
-	public static function getStats( $duration = 'last_7_days' )
-	{
+	public static function get_stats( $duration = 'last_7_days' ) {
+		//Define a return object
 		$return = new \stdClass();
 
 		//1. Assemble the Token for the Request.
-		$token = 'Basic '. base64_encode(get_option('wakatime_api_key'));
+		$token = 'Basic ' . base64_encode( get_option( 'wakatime_api_key' ) );
 
 		//2. Assemble the endpoint URL.
-		$url = WAKATIME_API_URL.'users/current/stats/'.$duration;
+		$url = WAKATIME_API_URL . 'users/current/stats/' . $duration;
 
 		//3. Request Arguments.
 		$args = array(
 			'headers' => array(
-				'Authorization' => $token
-			)
+				'Authorization' => $token,
+			),
 		);
 
 		//4. Make our Request
-		$response = wp_remote_get($url, $args);
+		$response = wp_remote_get( $url, $args );
 
 		//5. If the response code is 200, i.e Success Return the Body of the Request.
 		//   Otherwise return the response code and the response message
-		if(wp_remote_retrieve_response_code( $response ) == 200 ){
-
+		if ( 200 === wp_remote_retrieve_response_code( $response ) ) {
 			$return->code       = wp_remote_retrieve_response_code( $response );
 			$return->body       = wp_remote_retrieve_body( $response );
 			return $return;
-
 		} else {
 			$return->code       = wp_remote_retrieve_response_code( $response );
 			$return->message    = wp_remote_retrieve_response_message( $response );
 			return $return;
 		}
-
 	}
 }

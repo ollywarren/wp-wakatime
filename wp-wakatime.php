@@ -10,13 +10,14 @@
  * License: 		  MIT License, GNU General Public License v2.0
  */
 
+
 /********************************
  * Global Constant Definitions  *
  ********************************/
 
 define( 'PLUGIN_VERSION', '1.0.0' ); //<- REQUIRED
 define( 'AUTOLOAD_PATH', plugin_dir_path( __FILE__ ) ); //<- REQUIRED
-define( 'WAKATIME_API_URL', 'https://wakatime.com/api/v1/');
+define( 'WAKATIME_API_URL', 'https://wakatime.com/api/v1/' );
 
 /***********************************
  * Activation / Deactivation Setup *
@@ -36,4 +37,4 @@ register_deactivation_hook( __FILE__, 'wp_wakatime_deactivate_plugin' );
 require_once AUTOLOAD_PATH . 'autoload.php';
 
 /** Boot the Plugin **/
-Wp_Wakatime\Boot::onBoot();
+Wp_Wakatime\Boot::on_boot();
