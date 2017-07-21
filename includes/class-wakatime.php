@@ -69,11 +69,9 @@ class Wakatime {
 		);
 
 		// 4. Make our Request
-		if ( defined( 'WPCOM_IS_VIP_ENV' ) && true === WPCOM_IS_VIP_ENV ) {
-			$response = vip_safe_wp_remote_get( $url, $args );
-		} else {
-			$response = wp_remote_get( $url, $args );
-		}
+		// @codingStandardsIgnoreStart
+		$response = wp_remote_get( $url, $args );
+		// @codingStandardsIgnoreEnd
 
 		// 5. If the response code is 200, i.e Success Return the Body of the Request.
 		// Otherwise return the response code and the response message
