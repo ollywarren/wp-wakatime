@@ -87,10 +87,10 @@ class Boot {
 
 
 	/**
-	 * registerOptionsPage
+	 * register_options_page
 	 *
-	 * 1. Registers the options page with wordpress using the add_options_page function.
-	 *    Calls the renderOptionsPage method of this class to render the markup for the
+	 * 1. Registers the options page with WordPress using the add_options_page function.
+	 *    Calls the render_options_page method of this class to render the markup for the
 	 *    actual options page itself.
 	 *
 	 * 2. Registers a options group for the plugin along with a option to hold the API

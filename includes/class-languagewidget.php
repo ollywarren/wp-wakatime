@@ -98,10 +98,10 @@ class Languagewidget extends \WP_Widget {
 		echo esc_html( '<select class="widefat" id="' . $this->get_field_id( 'duration' ) . '" name="' . $this->get_field_name( 'duration' ) . '" value="' . esc_attr( $duration ) . '">' );
 
 		$options = array(
-			'Last 7 Days' 	=> 'last_7_days',
-			'Last 30 Days' 	=> 'last_30_days',
+			'Last 7 Days' => 'last_7_days',
+			'Last 30 Days' => 'last_30_days',
 			'Last 6 Months' => 'last_6_months',
-			'Last Year' 	=> 'last_year',
+			'Last Year' => 'last_year',
 		);
 
 		foreach ( $options as $key => $value ) {

@@ -3,11 +3,11 @@
 /**
  * @wordpress-plugin
  * Plugin Name:       WP Wakatime
- * Description:       Integrates Wakatime Stats with Wordpress using the Wakatime API.
+ * Description:       Integrates Wakatime Stats with WordPress using the Wakatime API.
  * Version:           1.0.0
  * Author:            Olly Warren
  * Author URI:        https://ollywarren.com
- * License: 		  MIT License, GNU General Public License v2.0
+ * License:           MIT License, GNU General Public License v2.0
  */
 
 
