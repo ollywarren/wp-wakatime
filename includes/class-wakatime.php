@@ -48,7 +48,7 @@ class Wakatime {
 		);
 
 		//4. Make our Request
-		$response = wp_remote_get( $url, $args );
+		$response = vip_safe_wp_remote_get( $url, $args );
 
 		//5. If the response code is 200, i.e Success Return the Body of the Request.
 		//   Otherwise return the response code and the response message
