@@ -61,7 +61,8 @@ class Languagewidget extends \WP_Widget {
 		}
 
 		// Define the markup of the widget.
-		echo $args['before_widget'];
+		echo '<section id="' . esc_html( $args['widget_id'] ) . '" class="widget ' . esc_html( $widget_options['classname'] ) . '">';
+
 		echo '<h2 class="widget-title">' . esc_html( $instance['title'] ) . ' | ' . esc_html( str_replace( '_', ' ', $instance['duration'] ) ) . '</h2>';
 
 		if ( isset( $languages ) ) {
@@ -76,7 +77,7 @@ class Languagewidget extends \WP_Widget {
 			echo '<div>No Stats Found. Try a different duration</div>';
 		}
 
-		echo $args['after_widget'];
+		echo '</section>';
 	}
 
 	/**

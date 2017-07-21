@@ -1,11 +1,13 @@
 <?php
+/**
+ * Autoload Handler
+ *
+ * @package     OllyWarren\WP-Wakatime
+ * @author      Olly Warren
+ * @copyright   2017 Olly Warren
+ * @license     GPL-2.0+
+ */
 
-/*******************************
- * Autoload Configuration      *
- * =========================   *
- * Add any classes that need   *
- * auto loading to this Array  *
- *******************************/
 $classes = [
 	'class-boot',
 	'class-wakatime',
