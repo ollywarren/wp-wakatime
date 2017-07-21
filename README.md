@@ -1,6 +1,8 @@
+[![Build Status](https://travis-ci.org/ollywarren/wp-wakatime.svg?branch=master)](https://travis-ci.org/ollywarren/wp-wakatime)
+
 # WP Wakatime
 
-Integrates Wordpress with the Wakatime API.
+Integrates WordPress with the Wakatime API.
 
 See: https://wakatime.com
 
