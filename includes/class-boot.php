@@ -1,11 +1,23 @@
 <?php
+/**
+ * Class BOot
+ * Handles the bootstrapping for the plugin
+ *
+ * @package     OllyWarren\WP-Wakatime
+ * @author      Olly Warren
+ * @copyright   2017 Olly Warren
+ * @license     GPL-2.0+
+ */
 
 namespace Wp_Wakatime;
 
+/**
+ * Class that boots the plugin.
+ */
 class Boot {
 
 	/**
-	 * onBoot
+	 * On_boot
 	 *
 	 * Setup of the plugin when it boots.
 	 *
@@ -24,23 +36,22 @@ class Boot {
 	 * @version 1.0
 	 */
 	public static function on_boot() {
-		//1. Setup Configuration Page
+		// 1. Setup Configuration Page.
 		add_action( 'admin_menu', [ 'Wp_Wakatime\Boot', 'register_options_page' ] );
 
-		//2. Register the Custom Widgets
+		// 2. Register the Custom Widgets.
 		add_action( 'widgets_init', function() {
 			register_widget( 'Wp_Wakatime\Widgets\languageWidget' );
 		});
 
-		//3. Register the Custom CSS
-		add_action( 'wp_enqueue_scripts', [ 'Wp_Wakatime\Boot', 'queueStyles' ] );
+		// 3. Register the Custom CSS.
+		add_action( 'wp_enqueue_scripts', [ 'Wp_Wakatime\Boot', 'queue_styles' ] );
 	}
 
 	/**
-	 * activate
+	 * Activate
 	 *
 	 * Actions to run on activation.
-	 *
 	 *
 	 * @author  Olly Warren
 	 * @package Wp_Wakatime\Boot
@@ -50,7 +61,7 @@ class Boot {
 	}
 
 	/**
-	 * deactivate
+	 * Deactivate
 	 *
 	 * Actions to run on deactivation.
 	 *
@@ -62,7 +73,7 @@ class Boot {
 	}
 
 	/**
-	 * install
+	 * Install
 	 *
 	 * Actions to run on install.
 	 *
@@ -74,7 +85,7 @@ class Boot {
 	}
 
 	/**
-	 * uninstall
+	 * Uninstall
 	 *
 	 * Actions to run on uninstall.
 	 *
@@ -87,7 +98,7 @@ class Boot {
 
 
 	/**
-	 * register_options_page
+	 * Register_options_page
 	 *
 	 * 1. Registers the options page with WordPress using the add_options_page function.
 	 *    Calls the render_options_page method of this class to render the markup for the
@@ -101,15 +112,15 @@ class Boot {
 	 * @version 1.0
 	 */
 	public static function register_options_page() {
-		//1. Registers the Options Page.
+		// 1. Registers the Options Page.
 		add_options_page( 'WP Wakatime', 'WP Wakatime', 'manage_options', 'wp-wakatime-settings', [ 'Wp_Wakatime\Boot', 'render_options_page' ] );
 
-		//2. Configures the Setting. Wakatime API Key
+		// 2. Configures the Setting. Wakatime API Key
 		register_setting( 'wp-wakatime-settings', 'wakatime_api_key' );
 	}
 
 	/**
-	 * render_options_page
+	 * Render_options_page
 	 *
 	 * Defines the markup for the Options page.
 	 *
@@ -118,25 +129,25 @@ class Boot {
 	 * @version 1.0
 	 */
 	public static function render_options_page() {
-		echo esc_html( '<div class="wrap">' );
-		echo esc_html( '<h2>WP Wakatime Settings</h2>' );
-		echo esc_html( '<hr />' );
-		echo esc_html( '<form method="post" action="options.php">' );
+		echo '<div class="wrap">';
+		echo '<h2>WP Wakatime Settings</h2>';
+		echo '<hr />';
+		echo '<form method="post" action="options.php">';
 		settings_fields( 'wp-wakatime-settings' );
 		do_settings_sections( 'wp-wakatime-settings' );
-		echo esc_html( '<table class="form-table">' );
-		echo esc_html( '<tr valign="top">' );
-		echo esc_html( '<th scope="row">Wakatime API Key</th>' );
-		echo esc_html( '<td><input type="text" name="wakatime_api_key" value="' . esc_attr( get_option( 'wakatime_api_key' ) ) . '" /></td>' );
-		echo esc_html( '</tr>' );
-		echo esc_html( '</table>' );
+		echo '<table class="form-table">';
+		echo '<tr valign="top">';
+		echo '<th scope="row">Wakatime API Key</th>';
+		echo '<td><input type="text" name="wakatime_api_key" value="' . esc_attr( get_option( 'wakatime_api_key' ) ) . '" /></td>';
+		echo '</tr>';
+		echo '</table>';
 		submit_button( 'Save Configuration' );
-		echo esc_html( '</form>' );
-		echo esc_html( '</div>' );
+		echo '</form>';
+		echo '</div>';
 	}
 
 	/**
-	 * queue_styles
+	 * Queue_styles
 	 *
 	 * Queues up the Stylesheet
 	 *

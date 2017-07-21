@@ -54,5 +54,5 @@ script:
     fi
   - |
     if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
-      phpcs --standard="WordPress-VIP" $(find . -name '*.php')
+      phpcs --standard="WordPress" $(find . -name '*.php')
     fi
